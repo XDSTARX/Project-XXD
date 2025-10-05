@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4">Check-in Diário</h1>
+  <a href="/dashboard" class="btn btn-outline-secondary">Voltar</a>
+</div>
+<div class="card shadow-sm">
+  <div class="card-body">
+    <% if (alreadyChecked) { %>
+      <div class="alert alert-success">Você já fez check-in hoje. Volte amanhã!</div>
+    <% } else { %>
+      <form method="POST" action="/checkin">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button class="btn btn-primary">Fazer check-in de <%= today %></button>
+      </form>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4">Saques Pix</h1>
+  <a href="/dashboard" class="btn btn-outline-secondary">Voltar</a>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Novo saque</h5>
+        <form method="POST" action="/withdrawals">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <div class="mb-3">
+            <label class="form-label">Valor</label>
+            <select name="amount_cents" class="form-select">
+              <option value="10">R$ 0,10</option>
+              <option value="100">R$ 1,00</option>
+              <option value="2000">R$ 20,00</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Banco/Carteira</label>
+            <select name="bank" class="form-select">
+              <% banks.forEach(b => { %>
+                <option value="<%= b %>"><%= b %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Chave Pix</label>
+            <input type="text" class="form-control" name="pix_key" required placeholder="CPF, email, telefone ou chave aleatória">
+          </div>
+          <button class="btn btn-success w-100" type="submit">Solicitar saque</button>
+        </form>
+        <p class="text-muted small mt-2">Processamento rápido (2-5s simulados). Sem taxas. Sem limite de saques.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Histórico</h5>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Banco</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% withdrawals.forEach(w => { %>
+              <tr data-id="<%= w.id %>">
+                <td><%= new Date(w.created_at).toLocaleString('pt-BR') %></td>
+                <td>R$ <%= (w.amount_cents/100).toFixed(2).replace('.', ',') %></td>
+                <td><%= w.bank %></td>
+                <td class="status"><span class="badge <%= w.status === 'completed' ? 'text-bg-success' : 'text-bg-warning' %>"><%= w.status %></span></td>
+              </tr>
+            <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  setInterval(() => {
+    document.querySelectorAll('tr[data-id] .status').forEach(async (cell) => {
+      const tr = cell.closest('tr');
+      const id = tr.getAttribute('data-id');
+      const res = await fetch(`/withdrawals/${id}/status`);
+      const data = await res.json();
+      if (data.ok) {
+        const status = data.status;
+        cell.innerHTML = `<span class="badge ${status === 'completed' ? 'text-bg-success' : 'text-bg-warning'}">${status}</span>`;
+      }
+    });
+  }, 1500);
+</script>

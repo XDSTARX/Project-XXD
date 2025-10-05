@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="h4 mb-3">Criar conta</h1>
+        <form method="POST" action="/register">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" name="display_name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+          <button class="btn btn-success w-100" type="submit">Cadastrar</button>
+        </form>
+        <div class="text-center mt-3">
+          <a href="/">Já tenho conta</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

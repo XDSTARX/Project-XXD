@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4">Ranking</h1>
+  <a href="/dashboard" class="btn btn-outline-secondary">Voltar</a>
+</div>
+<table class="table table-striped">
+  <thead><tr><th>#</th><th>Nome</th><th>Pontos</th></tr></thead>
+  <tbody>
+    <% leaders.forEach((l, i) => { %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= l.display_name %></td>
+        <td><%= l.points %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

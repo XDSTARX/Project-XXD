@@ -1,0 +1,5 @@
+body { background: #0f0f13; color: #f3f6ff; }
+.card { border-radius: 12px; }
+.navbar-dark .navbar-brand { color: #61dafb; }
+.btn-primary, .btn-success, .btn-dark { border-radius: 10px; }
+.table { color: #121212; }
