@@ -1,0 +1,200 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Domain enums
+enum WithdrawalStatus {
+  pending
+  processing
+  paid
+  failed
+  canceled
+}
+
+enum PointsTransactionType {
+  mission_reward
+  offerwall_reward
+  checkin_reward
+  admin_adjustment
+  withdrawal_deduction
+  withdrawal_refund
+  achievement_reward
+}
+
+enum MissionType {
+  survey
+  task
+  offerwall
+  download
+  custom
+}
+
+enum MissionDifficulty {
+  easy
+  medium
+  hard
+}
+
+enum MissionProgressStatus {
+  available
+  in_progress
+  submitted
+  approved
+  rejected
+  expired
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  image        String?
+  passwordHash String
+  role         String   @default("user")
+
+  // Gamification / economy
+  points       Int      @default(0)
+
+  // Timestamps
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  withdrawals        Withdrawal[]
+  pointsTransactions PointsTransaction[]
+  missionProgress    MissionProgress[]
+  userAchievements   UserAchievement[]
+  checkins           Checkin[]
+  offerwallPostbacks OfferwallPostback[]
+}
+
+model Withdrawal {
+  id            String           @id @default(cuid())
+  userId        String
+  user          User             @relation(fields: [userId], references: [id])
+  amountCents   Int
+  bank          String
+  pixKey        String
+  status        WithdrawalStatus @default(pending)
+  providerName  String?
+  providerRef   String?
+  errorMessage  String?
+  requestedAt   DateTime         @default(now())
+  processedAt   DateTime?
+
+  pointsTransactions PointsTransaction[]
+}
+
+model PointsTransaction {
+  id             String                 @id @default(cuid())
+  userId         String
+  user           User                   @relation(fields: [userId], references: [id])
+  type           PointsTransactionType
+  points         Int
+  createdAt      DateTime               @default(now())
+  note           String?
+
+  // Optional references
+  missionId      String?
+  mission        Mission?               @relation(fields: [missionId], references: [id])
+  withdrawalId   String?
+  withdrawal     Withdrawal?            @relation(fields: [withdrawalId], references: [id])
+}
+
+model Mission {
+  id           String             @id @default(cuid())
+  title        String
+  description  String
+  type         MissionType
+  difficulty   MissionDifficulty
+  pointsReward Int
+  active       Boolean            @default(true)
+  createdAt    DateTime           @default(now())
+  expiresAt    DateTime?
+
+  progress     MissionProgress[]
+  transactions PointsTransaction[]
+}
+
+model MissionProgress {
+  id         String                 @id @default(cuid())
+  userId     String
+  user       User                   @relation(fields: [userId], references: [id])
+  missionId  String
+  mission    Mission                @relation(fields: [missionId], references: [id])
+  status     MissionProgressStatus  @default(available)
+  startedAt  DateTime?
+  completedAt DateTime?
+
+  @@unique([userId, missionId])
+}
+
+model Achievement {
+  id           String   @id @default(cuid())
+  code         String   @unique
+  title        String
+  description  String
+  pointsReward Int      @default(0)
+  icon         String?
+  criteria     Json?
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  userAchievements UserAchievement[]
+}
+
+model UserAchievement {
+  id             String       @id @default(cuid())
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  achievementId  String
+  achievement    Achievement  @relation(fields: [achievementId], references: [id])
+  achievedAt     DateTime     @default(now())
+
+  @@unique([userId, achievementId])
+}
+
+model Checkin {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  date          DateTime
+  pointsAwarded Int
+  createdAt     DateTime @default(now())
+
+  @@unique([userId, date])
+}
+
+model Event {
+  id              String   @id @default(cuid())
+  title           String
+  description     String?
+  startAt         DateTime
+  endAt           DateTime?
+  pointsMultiplier Float    @default(1)
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+}
+
+model OfferwallPostback {
+  id             String   @id @default(cuid())
+  providerName   String
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id])
+  externalUserId String?
+  txId           String?
+  amountCents    Int?
+  points         Int      @default(0)
+  raw            Json?
+  createdAt      DateTime @default(now())
+
+  @@unique([providerName, txId])
+}
