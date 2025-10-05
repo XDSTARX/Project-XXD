@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Surveys in the World - Ganhe Dinheiro Real</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-coins"></i>
+                <span>Super Surveys in the World</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#missions" class="nav-link">Missões</a>
+                <a href="#withdraw" class="nav-link">Saque</a>
+                <a href="#ranking" class="nav-link">Ranking</a>
+                <a href="#achievements" class="nav-link">Conquistas</a>
+            </div>
+            <div class="nav-user">
+                <div class="user-balance">
+                    <i class="fas fa-wallet"></i>
+                    <span id="userBalance">R$ 0,00</span>
+                </div>
+                <div class="user-points">
+                    <i class="fas fa-star"></i>
+                    <span id="userPoints">0 pontos</span>
+                </div>
+                <button class="btn-login" id="loginBtn">Entrar</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Ganhe Dinheiro Real com Super Surveys</h1>
+            <p class="hero-subtitle">Complete missões fáceis e ganhe de R$ 0,10 até R$ 20,00 por missão!</p>
+            <div class="hero-features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Saque Instantâneo</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-gift"></i>
+                    <span>Sem Limite de Saque</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Seguro</span>
+                </div>
+            </div>
+            <button class="btn-primary" id="startEarningBtn">Começar a Ganhar</button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>R$ 2.847.392</h3>
+                <p>Pago aos usuários</p>
+            </div>
+            <div class="stat">
+                <h3>156.847</h3>
+                <p>Usuários ativos</p>
+            </div>
+            <div class="stat">
+                <h3>4.9/5</h3>
+                <p>Avaliação média</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missions Section -->
+    <section id="missions" class="missions">
+        <div class="container">
+            <h2 class="section-title">Missões Disponíveis</h2>
+            <div class="missions-grid" id="missionsGrid">
+                <!-- Missions will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Withdraw Section -->
+    <section id="withdraw" class="withdraw">
+        <div class="container">
+            <h2 class="section-title">Saque PIX</h2>
+            <div class="withdraw-content">
+                <div class="withdraw-form">
+                    <div class="form-group">
+                        <label>Valor do Saque</label>
+                        <input type="number" id="withdrawAmount" placeholder="Digite o valor" min="0.10" step="0.01">
+                        <small>Mínimo: R$ 0,10 | Máximo: R$ 20,00</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Banco</label>
+                        <select id="bankSelect">
+                            <option value="">Selecione seu banco</option>
+                            <option value="picpay">PicPay</option>
+                            <option value="nubank">Nubank</option>
+                            <option value="recargapay">Recargapay</option>
+                            <option value="pagbank">PagBank</option>
+                            <option value="infinitepay">InfinitePay</option>
+                            <option value="bradesco">Bradesco</option>
+                            <option value="itau">Itaú</option>
+                            <option value="caixa">Caixa</option>
+                            <option value="santander">Santander</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Chave PIX</label>
+                        <input type="text" id="pixKey" placeholder="Digite sua chave PIX">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" id="fullName" placeholder="Digite seu nome completo">
+                    </div>
+                    <button class="btn-primary" id="requestWithdrawBtn">Solicitar Saque</button>
+                </div>
+                <div class="withdraw-info">
+                    <h3>Como Funciona</h3>
+                    <div class="info-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Complete Missões</h4>
+                            <p>Ganhe pontos completando missões fáceis</p>
+                        </div>
+                    </div>
+                    <div class="info-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Solicite o Saque</h4>
+                            <p>Converta seus pontos em dinheiro real</p>
+                        </div>
+                    </div>
+                    <div class="info-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Receba no PIX</h4>
+                            <p>Dinheiro cai na sua conta em até 5 minutos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranking Section -->
+    <section id="ranking" class="ranking">
+        <div class="container">
+            <h2 class="section-title">Ranking de Usuários</h2>
+            <div class="ranking-list" id="rankingList">
+                <!-- Ranking will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Conquistas</h2>
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Achievements will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Check-in Section -->
+    <section class="checkin">
+        <div class="container">
+            <h2 class="section-title">Check-in Diário</h2>
+            <div class="checkin-content">
+                <div class="checkin-calendar" id="checkinCalendar">
+                    <!-- Calendar will be loaded dynamically -->
+                </div>
+                <button class="btn-primary" id="checkinBtn">Fazer Check-in</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history">
+        <div class="container">
+            <h2 class="section-title">Histórico</h2>
+            <div class="history-tabs">
+                <button class="tab-btn active" data-tab="withdrawals">Saques</button>
+                <button class="tab-btn" data-tab="missions">Missões</button>
+                <button class="tab-btn" data-tab="progress">Progresso</button>
+            </div>
+            <div class="history-content">
+                <div class="tab-content active" id="withdrawals">
+                    <div class="history-list" id="withdrawalsList">
+                        <!-- Withdrawals history will be loaded dynamically -->
+                    </div>
+                </div>
+                <div class="tab-content" id="missions">
+                    <div class="history-list" id="missionsList">
+                        <!-- Missions history will be loaded dynamically -->
+                    </div>
+                </div>
+                <div class="tab-content" id="progress">
+                    <div class="history-list" id="progressList">
+                        <!-- Progress history will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Entrar na sua conta</h3>
+                <button class="modal-close" id="closeLoginModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+                <p class="modal-footer">
+                    Não tem conta? <a href="#" id="showRegisterModal">Cadastre-se aqui</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Criar nova conta</h3>
+                <button class="modal-close" id="closeRegisterModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmar Senha</label>
+                        <input type="password" id="registerConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Cadastrar</button>
+                </form>
+                <p class="modal-footer">
+                    Já tem conta? <a href="#" id="showLoginModal">Faça login aqui</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdrawal Processing Modal -->
+    <div class="modal" id="processingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Processando Saque</h3>
+            </div>
+            <div class="modal-body">
+                <div class="processing-animation">
+                    <div class="spinner"></div>
+                    <p id="processingStatus">Iniciando processamento...</p>
+                </div>
+                <div class="processing-steps">
+                    <div class="step active" id="step1">
+                        <i class="fas fa-check"></i>
+                        <span>Validando dados</span>
+                    </div>
+                    <div class="step" id="step2">
+                        <i class="fas fa-clock"></i>
+                        <span>Processando PIX</span>
+                    </div>
+                    <div class="step" id="step3">
+                        <i class="fas fa-clock"></i>
+                        <span>Enviando para banco</span>
+                    </div>
+                    <div class="step" id="step4">
+                        <i class="fas fa-clock"></i>
+                        <span>Finalizando</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="sample-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
