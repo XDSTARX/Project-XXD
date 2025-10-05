@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar - Super Surveys in the World</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .customize-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .customize-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .customize-section h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .color-picker {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .color-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .color-option input[type="color"] {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .preview-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        .preview-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .preview-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        .preview-features {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .preview-feature {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        .btn-save {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        .btn-save:hover {
+            transform: translateY(-2px);
+        }
+        .mission-preview {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .mission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .mission-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .mission-reward {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="customize-container">
+        <h1 style="text-align: center; margin-bottom: 2rem; color: #333;">
+            <i class="fas fa-palette"></i> Personalizar Super Surveys in the World
+        </h1>
+
+        <div class="preview-section" id="previewSection">
+            <div class="preview-title" id="previewTitle">Super Surveys in the World</div>
+            <div class="preview-subtitle" id="previewSubtitle">Ganhe Dinheiro Real com PIX</div>
+            <div class="preview-features">
+                <div class="preview-feature">Saques gratuitos</div>
+                <div class="preview-feature">Processamento rápido</div>
+                <div class="preview-feature">Sem limite de saque</div>
+            </div>
+        </div>
+
+        <form id="customizeForm">
+            <div class="customize-section">
+                <h3><i class="fas fa-info-circle"></i> Informações Básicas</h3>
+                <div class="form-group">
+                    <label for="siteName">Nome do Site</label>
+                    <input type="text" id="siteName" value="Super Surveys in the World" onchange="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label for="siteSubtitle">Subtítulo</label>
+                    <input type="text" id="siteSubtitle" value="Ganhe Dinheiro Real com PIX" onchange="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label for="siteDescription">Descrição</label>
+                    <textarea id="siteDescription" rows="3" placeholder="Descrição do site...">Complete missões simples e ganhe de R$ 0,10 até R$ 20,00 por missão!</textarea>
+                </div>
+            </div>
+
+            <div class="customize-section">
+                <h3><i class="fas fa-palette"></i> Cores do Tema</h3>
+                <div class="color-picker">
+                    <div class="color-option">
+                        <input type="color" id="primaryColor" value="#667eea" onchange="updatePreview()">
+                        <label>Cor Primária</label>
+                    </div>
+                    <div class="color-option">
+                        <input type="color" id="secondaryColor" value="#764ba2" onchange="updatePreview()">
+                        <label>Cor Secundária</label>
+                    </div>
+                    <div class="color-option">
+                        <input type="color" id="accentColor" value="#ff6b6b" onchange="updatePreview()">
+                        <label>Cor de Destaque</label>
+                    </div>
+                    <div class="color-option">
+                        <input type="color" id="successColor" value="#28a745" onchange="updatePreview()">
+                        <label>Cor de Sucesso</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="customize-section">
+                <h3><i class="fas fa-coins"></i> Configurações Financeiras</h3>
+                <div class="form-group">
+                    <label for="minWithdrawal">Valor Mínimo de Saque (R$)</label>
+                    <input type="number" id="minWithdrawal" value="0.10" step="0.01" min="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="maxWithdrawal">Valor Máximo de Saque (R$)</label>
+                    <input type="number" id="maxWithdrawal" value="20.00" step="0.01" min="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="pointsRatio">Pontos por Real (1 ponto = R$ X,XX)</label>
+                    <input type="number" id="pointsRatio" value="1.00" step="0.01" min="0.01">
+                </div>
+            </div>
+
+            <div class="customize-section">
+                <h3><i class="fas fa-tasks"></i> Missões Personalizadas</h3>
+                <div id="missionsContainer">
+                    <div class="mission-preview">
+                        <div class="mission-header">
+                            <div class="mission-title">Pesquisa de Satisfação</div>
+                            <div class="mission-reward">R$ 2,50</div>
+                        </div>
+                        <p>Responda uma pesquisa rápida sobre produtos e serviços. Leva apenas 2 minutos!</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-primary" onclick="addMission()">
+                    <i class="fas fa-plus"></i> Adicionar Missão
+                </button>
+            </div>
+
+            <div class="customize-section">
+                <h3><i class="fas fa-university"></i> Bancos Suportados</h3>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> PicPay
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> Nubank
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> RecargaPay
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> PagBank
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> InfinitePay
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> Itaú
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> Bradesco
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> Santander
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> Caixa
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" checked> Banco do Brasil
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-save">
+                <i class="fas fa-save"></i> Salvar Personalizações
+            </button>
+        </form>
+    </div>
+
+    <script>
+        function updatePreview() {
+            const siteName = document.getElementById('siteName').value;
+            const siteSubtitle = document.getElementById('siteSubtitle').value;
+            const primaryColor = document.getElementById('primaryColor').value;
+            const secondaryColor = document.getElementById('secondaryColor').value;
+
+            document.getElementById('previewTitle').textContent = siteName;
+            document.getElementById('previewSubtitle').textContent = siteSubtitle;
+            
+            const previewSection = document.getElementById('previewSection');
+            previewSection.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+        }
+
+        function addMission() {
+            const container = document.getElementById('missionsContainer');
+            const missionDiv = document.createElement('div');
+            missionDiv.className = 'mission-preview';
+            missionDiv.innerHTML = `
+                <div class="mission-header">
+                    <input type="text" placeholder="Título da Missão" style="border: none; background: none; font-size: 1.25rem; font-weight: 600; color: #333; flex: 1;">
+                    <div class="mission-reward">
+                        <input type="number" placeholder="0.00" step="0.01" style="border: none; background: none; color: white; font-weight: 600; width: 80px;">
+                    </div>
+                </div>
+                <textarea placeholder="Descrição da missão..." style="width: 100%; border: none; background: none; resize: vertical; min-height: 60px;"></textarea>
+                <button type="button" onclick="this.parentElement.remove()" style="background: #dc3545; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-top: 0.5rem;">
+                    <i class="fas fa-trash"></i> Remover
+                </button>
+            `;
+            container.appendChild(missionDiv);
+        }
+
+        document.getElementById('customizeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const customizations = {
+                siteName: document.getElementById('siteName').value,
+                siteSubtitle: document.getElementById('siteSubtitle').value,
+                siteDescription: document.getElementById('siteDescription').value,
+                colors: {
+                    primary: document.getElementById('primaryColor').value,
+                    secondary: document.getElementById('secondaryColor').value,
+                    accent: document.getElementById('accentColor').value,
+                    success: document.getElementById('successColor').value
+                },
+                financial: {
+                    minWithdrawal: parseFloat(document.getElementById('minWithdrawal').value),
+                    maxWithdrawal: parseFloat(document.getElementById('maxWithdrawal').value),
+                    pointsRatio: parseFloat(document.getElementById('pointsRatio').value)
+                }
+            };
+
+            localStorage.setItem('siteCustomizations', JSON.stringify(customizations));
+            
+            alert('Personalizações salvas com sucesso! Recarregue a página principal para ver as mudanças.');
+        });
+
+        // Load saved customizations
+        window.addEventListener('load', function() {
+            const saved = localStorage.getItem('siteCustomizations');
+            if (saved) {
+                const customizations = JSON.parse(saved);
+                document.getElementById('siteName').value = customizations.siteName || 'Super Surveys in the World';
+                document.getElementById('siteSubtitle').value = customizations.siteSubtitle || 'Ganhe Dinheiro Real com PIX';
+                document.getElementById('siteDescription').value = customizations.siteDescription || '';
+                
+                if (customizations.colors) {
+                    document.getElementById('primaryColor').value = customizations.colors.primary || '#667eea';
+                    document.getElementById('secondaryColor').value = customizations.colors.secondary || '#764ba2';
+                    document.getElementById('accentColor').value = customizations.colors.accent || '#ff6b6b';
+                    document.getElementById('successColor').value = customizations.colors.success || '#28a745';
+                }
+                
+                if (customizations.financial) {
+                    document.getElementById('minWithdrawal').value = customizations.financial.minWithdrawal || 0.10;
+                    document.getElementById('maxWithdrawal').value = customizations.financial.maxWithdrawal || 20.00;
+                    document.getElementById('pointsRatio').value = customizations.financial.pointsRatio || 1.00;
+                }
+                
+                updatePreview();
+            }
+        });
+    </script>
+</body>
+</html>
