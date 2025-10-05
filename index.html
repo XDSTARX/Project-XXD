@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Surveys in the World - Ganhe Dinheiro Real</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader">
+            <div class="money-icon">💰</div>
+            <h2>Super Surveys in the World</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Entrar</button>
+                    <button class="auth-tab" data-tab="register">Cadastrar</button>
+                </div>
+                
+                <div id="login-form" class="auth-form active">
+                    <h2>Bem-vindo de volta!</h2>
+                    <form>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="login-email" placeholder="Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="login-password" placeholder="Senha" required>
+                        </div>
+                        <button type="submit" class="auth-btn">Entrar</button>
+                    </form>
+                </div>
+                
+                <div id="register-form" class="auth-form">
+                    <h2>Comece a ganhar agora!</h2>
+                    <form>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="register-name" placeholder="Nome completo" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="register-email" placeholder="Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="register-password" placeholder="Senha" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="register-phone" placeholder="Telefone (PIX)" required>
+                        </div>
+                        <button type="submit" class="auth-btn">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-coins"></i>
+                    <span>Super Surveys</span>
+                </div>
+                <div class="user-info">
+                    <div class="balance">
+                        <i class="fas fa-wallet"></i>
+                        <span id="user-balance">R$ 0,00</span>
+                    </div>
+                    <div class="points">
+                        <i class="fas fa-star"></i>
+                        <span id="user-points">0 pontos</span>
+                    </div>
+                    <div class="user-menu">
+                        <img id="user-avatar" src="https://via.placeholder.com/40" alt="Avatar">
+                        <span id="user-name">Usuário</span>
+                        <div class="dropdown">
+                            <button class="dropdown-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="showProfile()"><i class="fas fa-user"></i> Perfil</a>
+                                <a href="#" onclick="showHistory()"><i class="fas fa-history"></i> Histórico</a>
+                                <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-items">
+                <button class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </button>
+                <button class="nav-item" data-section="missions">
+                    <i class="fas fa-tasks"></i>
+                    <span>Missões</span>
+                </button>
+                <button class="nav-item" data-section="withdraw">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Sacar</span>
+                </button>
+                <button class="nav-item" data-section="ranking">
+                    <i class="fas fa-trophy"></i>
+                    <span>Ranking</span>
+                </button>
+                <button class="nav-item" data-section="achievements">
+                    <i class="fas fa-medal"></i>
+                    <span>Conquistas</span>
+                </button>
+                <button class="nav-item" data-section="events">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Eventos</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="welcome-banner">
+                    <div class="banner-content">
+                        <h1>Bem-vindo ao Super Surveys!</h1>
+                        <p>Complete missões fáceis e ganhe dinheiro real no PIX!</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <i class="fas fa-coins"></i>
+                                <div>
+                                    <span class="stat-value" id="total-earned">R$ 0,00</span>
+                                    <span class="stat-label">Total Ganho</span>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <span class="stat-value" id="missions-completed">0</span>
+                                    <span class="stat-label">Missões Concluídas</span>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-fire"></i>
+                                <div>
+                                    <span class="stat-value" id="streak-days">0</span>
+                                    <span class="stat-label">Dias Consecutivos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Check-in -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-calendar-check"></i> Check-in Diário</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="checkin-container">
+                            <div class="checkin-days">
+                                <div class="checkin-day completed">
+                                    <span>Dia 1</span>
+                                    <div class="reward">+50 pts</div>
+                                </div>
+                                <div class="checkin-day current">
+                                    <span>Dia 2</span>
+                                    <div class="reward">+75 pts</div>
+                                </div>
+                                <div class="checkin-day">
+                                    <span>Dia 3</span>
+                                    <div class="reward">+100 pts</div>
+                                </div>
+                                <div class="checkin-day">
+                                    <span>Dia 4</span>
+                                    <div class="reward">+150 pts</div>
+                                </div>
+                                <div class="checkin-day">
+                                    <span>Dia 5</span>
+                                    <div class="reward">+200 pts</div>
+                                </div>
+                                <div class="checkin-day bonus">
+                                    <span>Dia 6</span>
+                                    <div class="reward">+500 pts</div>
+                                </div>
+                                <div class="checkin-day mega-bonus">
+                                    <span>Dia 7</span>
+                                    <div class="reward">+1000 pts</div>
+                                </div>
+                            </div>
+                            <button id="checkin-btn" class="checkin-btn">
+                                <i class="fas fa-gift"></i>
+                                Fazer Check-in (+75 pontos)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <div class="action-card" onclick="showSection('missions')">
+                        <i class="fas fa-tasks"></i>
+                        <h4>Missões Rápidas</h4>
+                        <p>Complete e ganhe até R$ 20,00</p>
+                    </div>
+                    <div class="action-card" onclick="showSection('withdraw')">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Sacar Agora</h4>
+                        <p>Saque grátis e instantâneo</p>
+                    </div>
+                    <div class="action-card" onclick="showSection('events')">
+                        <i class="fas fa-gift"></i>
+                        <h4>Eventos Especiais</h4>
+                        <p>Bônus e promoções exclusivas</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Missions Section -->
+            <section id="missions" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks"></i> Missões Disponíveis</h2>
+                    <div class="mission-filters">
+                        <button class="filter-btn active" data-filter="all">Todas</button>
+                        <button class="filter-btn" data-filter="easy">Fáceis</button>
+                        <button class="filter-btn" data-filter="medium">Médias</button>
+                        <button class="filter-btn" data-filter="high">Altas</button>
+                    </div>
+                </div>
+                
+                <div class="missions-grid" id="missions-list">
+                    <!-- Missions will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Withdraw Section -->
+            <section id="withdraw" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-money-bill-wave"></i> Sacar Dinheiro</h2>
+                    <div class="balance-info">
+                        <span>Saldo disponível: <strong id="available-balance">R$ 0,00</strong></span>
+                    </div>
+                </div>
+
+                <div class="withdraw-container">
+                    <div class="withdraw-options">
+                        <div class="withdraw-card">
+                            <h3>Saque PIX Instantâneo</h3>
+                            <p>Receba em segundos, sem taxas!</p>
+                            
+                            <div class="withdraw-form">
+                                <div class="input-group">
+                                    <label>Valor do Saque</label>
+                                    <select id="withdraw-amount">
+                                        <option value="0.10">R$ 0,10 (10 pontos)</option>
+                                        <option value="0.50">R$ 0,50 (25 pontos)</option>
+                                        <option value="1.00">R$ 1,00 (50 pontos)</option>
+                                        <option value="2.00">R$ 2,00 (75 pontos)</option>
+                                        <option value="5.00">R$ 5,00 (100 pontos)</option>
+                                        <option value="10.00">R$ 10,00 (150 pontos)</option>
+                                        <option value="20.00">R$ 20,00 (200 pontos)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Banco/Carteira</label>
+                                    <select id="pix-bank">
+                                        <option value="picpay">PicPay</option>
+                                        <option value="nubank">Nubank</option>
+                                        <option value="recargapay">RecargaPay</option>
+                                        <option value="pagbank">PagBank</option>
+                                        <option value="infinitepay">InfinitePay</option>
+                                        <option value="banco-brasil">Banco do Brasil</option>
+                                        <option value="caixa">Caixa Econômica</option>
+                                        <option value="santander">Santander</option>
+                                        <option value="bradesco">Bradesco</option>
+                                        <option value="itau">Itaú</option>
+                                        <option value="inter">Banco Inter</option>
+                                        <option value="c6">C6 Bank</option>
+                                        <option value="next">Next</option>
+                                        <option value="original">Banco Original</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Chave PIX</label>
+                                    <input type="text" id="pix-key" placeholder="CPF, telefone, email ou chave aleatória">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Nome do Titular</label>
+                                    <input type="text" id="pix-name" placeholder="Nome completo">
+                                </div>
+                                
+                                <button id="withdraw-btn" class="withdraw-btn">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    Sacar Agora
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Withdrawal History -->
+                    <div class="withdrawal-history">
+                        <h3>Histórico de Saques</h3>
+                        <div id="withdrawal-list" class="withdrawal-list">
+                            <!-- Withdrawal history will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ranking Section -->
+            <section id="ranking" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-trophy"></i> Ranking dos Usuários</h2>
+                </div>
+                
+                <div class="ranking-container">
+                    <div class="ranking-list" id="ranking-list">
+                        <!-- Ranking will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section id="achievements" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-medal"></i> Suas Conquistas</h2>
+                </div>
+                
+                <div class="achievements-grid" id="achievements-list">
+                    <!-- Achievements will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Events Section -->
+            <section id="events" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-alt"></i> Eventos Especiais</h2>
+                </div>
+                
+                <div class="events-container" id="events-list">
+                    <!-- Events will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notifications" class="notifications"></div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
