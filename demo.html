@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Surveys in the World - Demonstração</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .demo-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 600;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+        }
+        .demo-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+        .hero {
+            margin-top: 60px;
+        }
+        .demo-features {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        .demo-features h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .feature-item i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .feature-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🚀 <strong>MODO DEMONSTRAÇÃO</strong> - Este é um sistema simulado para fins de demonstração. 
+        <a href="index.html">Clique aqui para acessar o sistema completo</a>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-coins"></i>
+                <span>Super Surveys in the World</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#features" class="nav-link">Funcionalidades</a>
+                <a href="#demo" class="nav-link">Demonstração</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-primary" onclick="window.open('index.html', '_blank')">Testar Sistema</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Super Surveys in the World</h1>
+            <p class="hero-subtitle">A melhor plataforma para ganhar dinheiro real online!</p>
+            <div class="hero-features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Saque Instantâneo</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-gift"></i>
+                    <span>Sem Limite de Saque</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Seguro</span>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="window.open('index.html', '_blank')">Começar a Ganhar Agora</button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>R$ 2.847.392</h3>
+                <p>Pago aos usuários</p>
+            </div>
+            <div class="stat">
+                <h3>156.847</h3>
+                <p>Usuários ativos</p>
+            </div>
+            <div class="stat">
+                <h3>4.9/5</h3>
+                <p>Avaliação média</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="demo-features">
+        <div class="container">
+            <h3>Funcionalidades Principais</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h4>Ganhe de R$ 0,10 até R$ 20,00</h4>
+                    <p>Valores altos por missões fáceis de 2-7 minutos</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-university"></i>
+                    <h4>Múltiplos Bancos PIX</h4>
+                    <p>PicPay, Nubank, PagBank, Bradesco, Itaú e mais</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Saque Rápido</h4>
+                    <p>Processamento em até 5 minutos, sem taxas</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Sistema de Conquistas</h4>
+                    <p>Desbloqueie conquistas e ganhe bônus extras</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Ranking de Usuários</h4>
+                    <p>Veja quem ganha mais e compita com outros</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Check-in Diário</h4>
+                    <p>Ganhe bônus fazendo check-in todos os dias</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-history"></i>
+                    <h4>Histórico Completo</h4>
+                    <p>Acompanhe todos os seus ganhos e saques</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>100% Responsivo</h4>
+                    <p>Funciona perfeitamente em desktop e mobile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="missions">
+        <div class="container">
+            <h2 class="section-title">Demonstração do Sistema</h2>
+            <div class="demo-content">
+                <div class="demo-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Cadastre-se ou Faça Login</h4>
+                        <p>Crie sua conta gratuitamente ou faça login com seus dados</p>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjhGOUZBIi8+CjxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9IiM2NjdFRUEiLz4KPHN2ZyB4PSI2MCIgeT0iNjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAxMkMxNCA3IDE2IDUgMjAgNUMyMiA1IDI0IDcgMjQgMTJDMjQgMTcgMjIgMTkgMjAgMTlDMTYgMTkgMTQgMTcgMTIgMTJaTTEyIDEyQzEwIDcgOCA1IDQgNUMyIDUgMCA3IDAgMTJDMCAxNyAyIDE5IDQgMTlDOCAxOSAxMCAxNyAxMiAxMloiLz4KPC9zdmc+Cjx0ZXh0IHg9IjkwIiB5PSI4NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSI+RW50cmFyPC90ZXh0Pgo8L3N2Zz4K" alt="Login Demo" style="width: 100%; max-width: 300px; border-radius: 10px; margin-top: 1rem;">
+                    </div>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Escolha uma Missão</h4>
+                        <p>Selecione uma missão fácil e comece a ganhar dinheiro imediatamente</p>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjhGOUZBIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIxNjAiIHJ4PSIxMCIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iMjAiIGZpbGw9IiM2NjdFRUEiLz4KPHN2ZyB4PSI0NSIgeT0iNDUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMlMyIDYuNDggMTIgMTIgMTIgMTggMTIgMTggMTIgMTJaIi8+Cjwvc3ZnPgo8dGV4dCB4PSI5MCIgeT0iNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+UGVzcXVpc2EgZGUgU2F0aXNmYcOnw6NzwqA8L3RleHQ+Cjx0ZXh0IHg9IjkwIiB5PSI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2Ij5SZXNwb25kYSB1bWEgcmlwacOtZGEgcGVzcXVpc2E8L3RleHQ+Cjx0ZXh0IHg9IjkwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzI4QTc0NSI+UiQgMiw1MDwvdGV4dD4KPHRleHQgeD0iOTAiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjRkZDNTA3Ij4yNSBwb250b3M8L3RleHQ+CjxyZWN0IHg9IjkwIiB5PSIxNDAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMzAiIHJ4PSIxNSIgZmlsbD0iIzY2N0VFQSIvPgo8dGV4dCB4PSIxMzAiIHk9IjE2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW5pY2lhciBNaXNzw6NvPC90ZXh0Pgo8L3N2Zz4K" alt="Mission Demo" style="width: 100%; max-width: 300px; border-radius: 10px; margin-top: 1rem;">
+                    </div>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Complete e Ganhe</h4>
+                        <p>Após completar a missão, o dinheiro é creditado instantaneamente</p>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjhGOUZBIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiMyOEE3NDUiLz4KPHN2ZyB4PSIxMzUiIHk9Ijg1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPgo8cGF0aCBkPSJNOSAxNkw1IDEyTDMgMTRMOCAxOUwyMCA3TDE4IDVMMTAgMTNaIi8+Cjwvc3ZnPgo8dGV4dCB4PSIxNTAiIHk9IjE2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSIjMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NaXNzw6NvIENvbmNsdcOtZGEhPC90ZXh0Pgo8dGV4dCB4PSIxNTAiIHk9IjE4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMjhBNzQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Wb2PDqiBnYW5ob3UgUiQgMiw1MDwvdGV4dD4KPC9zdmc+Cg==" alt="Success Demo" style="width: 100%; max-width: 300px; border-radius: 10px; margin-top: 1rem;">
+                    </div>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Saque via PIX</h4>
+                        <p>Escolha seu banco, digite sua chave PIX e saque em até 5 minutos</p>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjhGOUZBIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIxNjAiIHJ4PSIxMCIgZmlsbD0id2hpdGUiLz4KPHN2ZyB4PSI0MCIgeT0iNDAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjNjY3RUVBIj4KPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyUzIgNi40OCAxMiAxMiAxMiAxOCAxMiAxOCAxMiAxMloiLz4KPC9zdmc+Cjx0ZXh0IHg9IjgwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMzMzIj5WYWxvciBkbyBTYXF1ZTwvdGV4dD4KPHRleHQgeD0iODAiIHk9IjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NjYiPkRpZ2l0ZSBvIHZhbG9yPC90ZXh0Pgo8cmVjdCB4PSI4MCIgeT0iOTAiIHdpZHRoPSIxNDAiIGhlaWdodD0iMjAiIHJ4PSI1IiBmaWxsPSIjRjhGOUZBIi8+Cjx0ZXh0IHg9IjgwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMzMzIj5CYW5jbzwvdGV4dD4KPHRleHQgeD0iODAiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2Ij5TZWxlY2lvbmUgc2V1IGJhbmNvPC90ZXh0Pgo8cmVjdCB4PSI4MCIgeT0iMTMwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjIwIiByeD0iNSIgZmlsbD0iI0Y4RjlGQSIvPgo8cmVjdCB4PSI4MCIgeT0iMTcwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjMwIiByeD0iMTUiIGZpbGw9IiM2NjdFRUEiLz4KPHRleHQgeD0iMTUwIiB5PSIxODUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNvbGljaXRhciBTYXF1ZTwvdGV4dD4KPC9zdmc+Cg==" alt="Withdraw Demo" style="width: 100%; max-width: 300px; border-radius: 10px; margin-top: 1rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Pronto para Começar?</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Teste o Sistema Agora</h3>
+                    <p>Experimente todas as funcionalidades do Super Surveys in the World:</p>
+                    <ul>
+                        <li>✅ Sistema de missões completo</li>
+                        <li>✅ Saque PIX para múltiplos bancos</li>
+                        <li>✅ Sistema de conquistas e ranking</li>
+                        <li>✅ Check-in diário e eventos</li>
+                        <li>✅ Histórico completo de transações</li>
+                        <li>✅ Interface responsiva e moderna</li>
+                    </ul>
+                    <button class="btn-primary" onclick="window.open('index.html', '_blank')" style="margin-top: 2rem;">
+                        <i class="fas fa-rocket"></i> Testar Sistema Completo
+                    </button>
+                </div>
+                <div class="contact-stats">
+                    <div class="stat-item">
+                        <h4>R$ 0,10 - R$ 20,00</h4>
+                        <p>Por missão</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>2-7 min</h4>
+                        <p>Tempo médio</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>5 min</h4>
+                        <p>Processamento PIX</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>0%</h4>
+                        <p>Taxa de saque</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add demo step styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .demo-step {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                margin-bottom: 3rem;
+                padding: 2rem;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .step-number {
+                width: 60px;
+                height: 60px;
+                background: #667eea;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: 700;
+                flex-shrink: 0;
+            }
+            .step-content h4 {
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+            .step-content p {
+                color: #666;
+                margin-bottom: 1rem;
+            }
+            .contact-content {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 3rem;
+                align-items: start;
+            }
+            .contact-info ul {
+                list-style: none;
+                padding: 0;
+            }
+            .contact-info li {
+                padding: 0.5rem 0;
+                color: #333;
+            }
+            .contact-stats {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .stat-item {
+                text-align: center;
+                padding: 1.5rem;
+                background: #f8f9fa;
+                border-radius: 10px;
+            }
+            .stat-item h4 {
+                font-size: 1.5rem;
+                color: #667eea;
+                margin-bottom: 0.5rem;
+            }
+            .stat-item p {
+                color: #666;
+                margin: 0;
+            }
+            @media (max-width: 768px) {
+                .demo-step {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .contact-content {
+                    grid-template-columns: 1fr;
+                }
+                .contact-stats {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

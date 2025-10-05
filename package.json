@@ -1,0 +1,44 @@
+{
+  "name": "super-surveys-world",
+  "version": "1.0.0",
+  "description": "Sistema completo para ganhar dinheiro real online com PIX",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'No build process needed - static files only'",
+    "test": "echo 'Open http://localhost:8000 in your browser to test'",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "surveys",
+    "money",
+    "pix",
+    "brazil",
+    "earn",
+    "online",
+    "rewards",
+    "missions"
+  ],
+  "author": "Super Surveys Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/super-surveys/super-surveys-world.git"
+  },
+  "bugs": {
+    "url": "https://github.com/super-surveys/super-surveys-world/issues"
+  },
+  "homepage": "https://super-surveys-world.com",
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.6.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
